@@ -1,0 +1,133 @@
+CẤU TRÚC CÂY QUYẾT ĐỊNH ID3
+========================================
+ [Hỏi: ST_Slope ?]
+    == Flat [Hỏi: Sex ?]
+        == M [Hỏi: MaxHR ?]
+            <= 142.50 [Hỏi: ChestPainType ?]
+                == ASY [Hỏi: RestingBP ?]
+                    <= 140.50 [Hỏi: Oldpeak ?]
+                        <= 0.10 --> CÓ BỆNH (1)
+                        >  0.10 [Hỏi: Oldpeak ?]
+                            <= 0.65 --> KHÔNG BỆNH (0)
+                            >  0.65 [Hỏi: RestingBP ?]
+                                <= 124.50 [Hỏi: RestingECG ?]
+                                    == Normal [Hỏi: MaxHR ?]
+                                        <= 125.50 --> CÓ BỆNH (1)
+                                        >  125.50 --> CÓ BỆNH (1)
+                                    == LVH --> CÓ BỆNH (1)
+                                    == ST --> CÓ BỆNH (1)
+                                >  124.50 --> CÓ BỆNH (1)
+                    >  140.50 --> CÓ BỆNH (1)
+                == NAP [Hỏi: Age ?]
+                    <= 55.50 --> CÓ BỆNH (1)
+                    >  55.50 [Hỏi: Oldpeak ?]
+                        <= 0.80 [Hỏi: RestingBP ?]
+                            <= 122.50 --> CÓ BỆNH (1)
+                            >  122.50 --> CÓ BỆNH (1)
+                        >  0.80 [Hỏi: Oldpeak ?]
+                            <= 1.65 --> KHÔNG BỆNH (0)
+                            >  1.65 --> CÓ BỆNH (1)
+                == ATA --> CÓ BỆNH (1)
+                == TA --> CÓ BỆNH (1)
+            >  142.50 [Hỏi: Oldpeak ?]
+                <= 0.30 --> CÓ BỆNH (1)
+                >  0.30 [Hỏi: Cholesterol ?]
+                    <= 229.00 [Hỏi: Cholesterol ?]
+                        <= 191.00 --> CÓ BỆNH (1)
+                        >  191.00 [Hỏi: RestingECG ?]
+                            == LVH --> KHÔNG BỆNH (0)
+                            == Normal --> KHÔNG BỆNH (0)
+                            == ST --> CÓ BỆNH (1)
+                    >  229.00 [Hỏi: ChestPainType ?]
+                        == TA --> CÓ BỆNH (1)
+                        == ASY [Hỏi: MaxHR ?]
+                            <= 150.50 --> CÓ BỆNH (1)
+                            >  150.50 [Hỏi: FastingBS ?]
+                                == 1 --> CÓ BỆNH (1)
+                                == 0 --> KHÔNG BỆNH (0)
+                        == ATA --> CÓ BỆNH (1)
+                        == NAP [Hỏi: Oldpeak ?]
+                            <= 1.25 --> KHÔNG BỆNH (0)
+                            >  1.25 --> CÓ BỆNH (1)
+        == F [Hỏi: FastingBS ?]
+            == 0 [Hỏi: ExerciseAngina ?]
+                == N [Hỏi: RestingBP ?]
+                    <= 148.00 [Hỏi: MaxHR ?]
+                        <= 97.50 --> CÓ BỆNH (1)
+                        >  97.50 [Hỏi: ChestPainType ?]
+                            == NAP --> KHÔNG BỆNH (0)
+                            == ATA --> KHÔNG BỆNH (0)
+                            == ASY --> KHÔNG BỆNH (0)
+                            == TA --> KHÔNG BỆNH (0)
+                    >  148.00 --> CÓ BỆNH (1)
+                == Y [Hỏi: Age ?]
+                    <= 61.50 [Hỏi: MaxHR ?]
+                        <= 109.00 --> CÓ BỆNH (1)
+                        >  109.00 [Hỏi: Cholesterol ?]
+                            <= 244.50 --> KHÔNG BỆNH (0)
+                            >  244.50 --> CÓ BỆNH (1)
+                    >  61.50 --> CÓ BỆNH (1)
+            == 1 --> CÓ BỆNH (1)
+    == Up [Hỏi: ChestPainType ?]
+        == NAP [Hỏi: Oldpeak ?]
+            <= 1.95 [Hỏi: MaxHR ?]
+                <= 159.00 [Hỏi: MaxHR ?]
+                    <= 157.50 [Hỏi: RestingBP ?]
+                        <= 119.00 --> KHÔNG BỆNH (0)
+                        >  119.00 [Hỏi: Age ?]
+                            <= 71.00 --> KHÔNG BỆNH (0)
+                            >  71.00 --> CÓ BỆNH (1)
+                    >  157.50 --> CÓ BỆNH (1)
+                >  159.00 --> KHÔNG BỆNH (0)
+            >  1.95 --> CÓ BỆNH (1)
+        == ASY [Hỏi: Oldpeak ?]
+            <= 0.45 [Hỏi: MaxHR ?]
+                <= 149.00 [Hỏi: RestingECG ?]
+                    == Normal --> KHÔNG BỆNH (0)
+                    == LVH --> KHÔNG BỆNH (0)
+                    == ST [Hỏi: Cholesterol ?]
+                        <= 238.50 [Hỏi: Cholesterol ?]
+                            <= 232.00 --> KHÔNG BỆNH (0)
+                            >  232.00 --> CÓ BỆNH (1)
+                        >  238.50 --> KHÔNG BỆNH (0)
+                >  149.00 [Hỏi: MaxHR ?]
+                    <= 181.50 [Hỏi: Age ?]
+                        <= 57.50 [Hỏi: Age ?]
+                            <= 52.50 [Hỏi: Cholesterol ?]
+                                <= 302.50 [Hỏi: Sex ?]
+                                    == F --> KHÔNG BỆNH (0)
+                                    == M [Hỏi: Age ?]
+                                        <= 43.50 --> KHÔNG BỆNH (0)
+                                        >  43.50 --> CÓ BỆNH (1)
+                                >  302.50 --> KHÔNG BỆNH (0)
+                            >  52.50 --> KHÔNG BỆNH (0)
+                        >  57.50 --> CÓ BỆNH (1)
+                    >  181.50 --> KHÔNG BỆNH (0)
+            >  0.45 [Hỏi: MaxHR ?]
+                <= 132.50 --> CÓ BỆNH (1)
+                >  132.50 [Hỏi: RestingBP ?]
+                    <= 146.00 [Hỏi: Cholesterol ?]
+                        <= 185.00 --> KHÔNG BỆNH (0)
+                        >  185.00 [Hỏi: Age ?]
+                            <= 53.00 --> CÓ BỆNH (1)
+                            >  53.00 --> CÓ BỆNH (1)
+                    >  146.00 --> KHÔNG BỆNH (0)
+        == ATA [Hỏi: RestingECG ?]
+            == Normal --> KHÔNG BỆNH (0)
+            == ST [Hỏi: Age ?]
+                <= 68.50 --> KHÔNG BỆNH (0)
+                >  68.50 --> CÓ BỆNH (1)
+            == LVH [Hỏi: RestingBP ?]
+                <= 134.00 --> KHÔNG BỆNH (0)
+                >  134.00 --> CÓ BỆNH (1)
+        == TA [Hỏi: RestingBP ?]
+            <= 97.50 --> CÓ BỆNH (1)
+            >  97.50 --> KHÔNG BỆNH (0)
+    == Down [Hỏi: ChestPainType ?]
+        == ASY [Hỏi: Cholesterol ?]
+            <= 299.50 --> CÓ BỆNH (1)
+            >  299.50 --> CÓ BỆNH (1)
+        == NAP --> CÓ BỆNH (1)
+        == TA --> KHÔNG BỆNH (0)
+        == ATA --> KHÔNG BỆNH (0)
+========================================
