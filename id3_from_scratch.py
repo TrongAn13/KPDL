@@ -24,14 +24,21 @@ def clean_data():
     df = df[df['RestingBP'] > 0]
     print(f" + Đã xóa {initial_len - len(df)} dòng có Huyết áp = 0.")
 
-    # 4. Xử lý Cholesterol = 0 -> Đây là lỗi missing value
-    # Thay thế bằng trung vị (median) của những người có chỉ số > 0
-    median_chol = df[df['Cholesterol'] > 0]['Cholesterol'].median()
+    # # 4. Xử lý Cholesterol = 0 -> Đây là lỗi missing value
+    # # Thay thế bằng trung vị (median) của những người có chỉ số > 0
+    # median_chol = df[df['Cholesterol'] > 0]['Cholesterol'].median()
+    # count_zero_chol = len(df[df['Cholesterol'] == 0])
+    
+    # if count_zero_chol > 0:
+    #     df['Cholesterol'] = df['Cholesterol'].replace(0, median_chol)
+    #     print(f" + Đã thay thế {count_zero_chol} giá trị Cholesterol=0 bằng Median ({median_chol}).")
+
+    # 4. Xử lý Cholesterol = 0 -> Coi là lỗi -> Xóa luôn
     count_zero_chol = len(df[df['Cholesterol'] == 0])
     
     if count_zero_chol > 0:
-        df['Cholesterol'] = df['Cholesterol'].replace(0, median_chol)
-        print(f" + Đã thay thế {count_zero_chol} giá trị Cholesterol=0 bằng Median ({median_chol}).")
+        df = df[df['Cholesterol'] > 0]
+        print(f" + Đã xóa {count_zero_chol} dòng có Cholesterol = 0")
 
     # 5. Xóa các dòng thiếu dữ liệu (NaN) nếu còn sót
     if df.isnull().sum().sum() > 0:

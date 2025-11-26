@@ -18,8 +18,8 @@ def load_model():
 
 # 2. GIAO DIỆN NGƯỜI DÙNG
 
-st.set_page_config(page_title="Dự đoán bệnh tim", layout="wide")
-st.title("Ứng dụng Chẩn đoán Bệnh tim (ID3)")
+st.set_page_config(page_title="Dự đoán suy tim", layout="wide")
+st.title("Ứng dụng Chẩn đoán suy tim (ID3)")
 st.caption("Chạy trên mô hình đã được huấn luyện trước (Pre-trained Model)")
 
 # Load model

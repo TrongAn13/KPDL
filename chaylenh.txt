@@ -1,0 +1,22 @@
+Dự án yêu cầu cài đặt ngôn ngữ lập trình Python và các thư viện phụ thuộc sau:
+pandas
+numpy
+scikit-learn (chỉ dùng để chia tập train/test và tính toán độ đo)
+streamlit
+Lệnh cài đặt:
+
+pip install pandas numpy scikit-learn streamlit
+
+
+Bước 1: Làm sạch dữ liệu
+Chạy file id3_from _scratch
+Kết quả: Hệ thống sẽ tạo ra file csv mới chữa dữ liệu đã làm sạch
+
+Bước 2: Huấn luyện mô hình Trước khi khởi chạy ứng dụng, cần thực hiện huấn luyện để sinh ra file mô hình. 
+Chạy file:id3_train_optimized.py
+Kết quả: Hệ thống sẽ in ra cấu trúc cây quyết định dạng văn bản và độ chính xác trên tập kiểm thử, đồng thời tạo ra file best_id3_model.pkl.
+
+Bước 3: Khởi chạy ứng dụng Web Sử dụng lệnh sau để mở giao diện người dùng
+
+streamlit run app.py
+
